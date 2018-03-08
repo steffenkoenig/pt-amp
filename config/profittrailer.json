@@ -1,0 +1,88 @@
+{
+  "configuration": {
+    "sell_fillOrKill": false,
+    "sell_immediateOrCancel": true,
+    "buy_fillOrKill": false,
+    "buy_immediateOrCancel": true,
+    "testMode": false,
+    "BTC_dust": 0.00205
+  },
+  "pairs": {
+    "MARKET": "BTC",
+
+    "ALL_trading_enabled": true,
+    "ALL_enabled_pairs": "ALL",
+    "ALL_hidden_pairs": "BNBBTC",
+    "BNBBTC_trading_enabled": "false",
+
+    "ALL_max_cost": 0,
+    "ALL_max_cost_percentage": 1,
+    "ALL_min_buy_balance": 0,
+    "ALL_min_buy_balance_percentage": 65,
+    "ALL_min_buy_volume": 500,
+    "ALL_min_buy_price": 0,
+    "ALL_max_trading_pairs": 20,
+    "ALL_max_buy_spread": 2,
+
+    "ALL_buy_strategy": "EMASPREAD",
+    "ALL_buy_value": -0.25,
+    "ALL_trailing_buy": 0.1,
+
+    "ALL_sell_strategy": "GAIN",
+    "ALL_sell_value": 1.2,
+    "ALL_min_profit": 1.2,
+    "ALL_trailing_profit": 0.3,
+
+    "All_stop_loss_trigger": 0,
+    "ALL_stop_loss_timeout": 0,
+    "ALL_panic_sell_enabled": false,
+
+    "ALL_DCA_enabled": -5,
+
+    "ALL_sell_only_mode": false,
+
+    "ALL_btc_price_drop_trigger": 0,
+    "ALL_btc_price_drop_recover_trigger": 0,
+
+    "ALL_btc_price_rise_trigger": 0,
+    "ALL_btc_price_rise_recover_trigger": 0,
+
+    "ALL_consecutive_buy_trigger": 0,
+    "ALL_consecutive_sell_trigger": 0,
+
+    "ALL_pending_order_wait_time": 0,
+    "ALL_combined_cancel_pending_trigger": 0
+  },
+  "dca": {
+    "max_cost": 0.03,
+    "max_buy_times": 5,
+
+    "buy_strategy": "LOWBB",
+    "buy_value": 0,
+    "buy_trigger": -5,
+    "trailing_buy": 0.1,
+
+    "sell_strategy": "GAIN",
+    "sell_value": 1,
+    "sell_trigger": 1,
+    "trailing_profit": 0.4,
+    "stop_loss_trigger": 0,
+
+    "buy_available_volume_trigger": 125,
+    "ignore_sell_only_mode": true,
+    "max_buy_spread": 0,
+    "min_buy_balance": 0,
+    "min_buy_balance_percentage": 40,
+
+    "pending_order_wait_time": 0
+  },
+  "indicators": {
+    "BB_period": 300,
+    "BB_sma": 40,
+    "SMA_period": 300,
+    "SMA_1": 24,
+    "EMA_period": 1800,
+    "EMA_1": 20,
+    "EMA_2": 5
+  }
+}

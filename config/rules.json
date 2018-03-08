@@ -1,0 +1,122 @@
+{
+  "general": {
+    "defaultTriggerSettings": {
+      "trendMinutes": 360,
+      "dropTrigger": -1,
+      "dropPeriods": 9,
+      "dropTimeoutMinutes": 5,
+      "topCoinLimit": 50
+
+    }
+  },
+  "coinPairs": [
+    "ETHBTC","LTCBTC","BNBBTC","NEOBTC","BCCBTC","GASBTC","HSRBTC","MCOBTC","WTCBTC","LRCBTC","QTUMBTC","YOYOBTC","OMGBTC","ZRXBTC","STRATBTC","SNGLSBTC","BQXBTC","KNCBTC","FUNBTC","SNMBTC","IOTABTC","LINKBTC","XVGBTC","CTRBTC","SALTBTC","MDABTC","MTLBTC","SUBBTC","EOSBTC","SNTBTC","ETCBTC","MTHBTC","ENGBTC","DNTBTC","ZECBTC","BNTBTC","ASTBTC","DASHBTC","OAXBTC","ICNBTC","BTGBTC","EVXBTC","REQBTC","VIBBTC","TRXBTC","POWRBTC","ARKBTC","XRPBTC","MODBTC","ENJBTC","STORJBTC","VENBTC","KMDBTC","RCNBTC","NULSBTC","RDNBTC","XMRBTC","DLTBTC","AMBBTC","BATBTC","BCPTBTC","ARNBTC","GVTBTC","CDTBTC","GXSBTC","POEBTC","QSPBTC","BTSBTC","XZCBTC","LSKBTC","TNTBTC","FUELBTC","MANABTC","BCDBTC","DGDBTC","ADXBTC","ADABTC","PPTBTC","CMTBTC","XLMBTC","CNDBTC","LENDBTC","WABIBTC","TNBBTC","WAVESBTC","GTOBTC","ICXBTC","OSTBTC","ELFBTC","AIONBTC","NEBLBTC","BRDBTC","EDOBTC","WINGSBTC","NAVBTC","LUNBTC","TRIGBTC","APPCBTC","VIBEBTC","RLCBTC","INSBTC","PIVXBTC","IOSTBTC"
+  ],
+
+
+  "triggers": {
+    "rsi30": {
+      "name": "Buy RSI below 30",
+      "description": "Allow buying when RSI is below 30",
+      "type": "rsi",
+      "candleSize": 1,
+      "minTrigger": 0,
+      "maxTrigger": 40,
+      "periods": 14,
+      "price": "close",
+      "direction": "up"
+    },
+    "pump1": {
+      "name": "Short pump 5%",
+      "description": "Check for Pump of coin over 30 minutes",
+      "type": "smaTrend",
+      "candleSize": 1,
+      "maShort": 2,
+      "minTrigger": 0,
+      "maxTrigger": 30,
+      "periods": 10,
+      "price": "close"
+    },
+    "pump2": {
+      "name": "mid pump 10%",
+      "description": "Check for Pump of coin over 30 minutes",
+      "type": "smaTrend",
+      "candleSize": 5,
+      "maShort": 2,
+      "minTrigger": 10,
+      "maxTrigger": 100,
+      "periods": 10,
+      "price": "close"
+    },
+    "pump3": {
+      "name": "pump detect",
+      "type": "pump",
+      "candleSize": 1,
+      "periods": 60,
+      "minTrigger": 5,
+      "maxTrigger": 10
+    },
+    "cci": {
+      "name": "CCI",
+      "type": "cci",
+      "candleSize": 1,
+      "maShort": 20,
+      "minTrigger": 70,
+      "maxTrigger": 100
+    },
+    "market": {
+      "name": "market trend",
+      "type": "marketTrend",
+      "candleSize": 1,
+      "periods": 60,
+      "minTrigger": 70,
+      "maxTrigger": 100,
+      "price": "price"
+    }
+
+  },
+
+  "configSets": {
+    "allowcoin": {
+      "name": "allow coins",
+      "description": "allows buying coins",
+      "commands": {
+        "pairs": {
+          "COIN_sell_only_mode": false
+        }
+      },
+      "offsets": {
+        "pairs": {}
+      }
+    },
+    "forbidcoin": {
+      "name": "forbid coins",
+      "description": "forbids buying coins",
+      "commands": {
+        "pairs": {
+          "COIN_sell_only_mode": true
+        }
+      },
+      "offsets": {
+        "pairs": {}
+      }
+    }
+
+  },
+
+  "rules": {
+    "buycoins": {
+      "name": "",
+      "triggerID": ["rsi30"],
+      "triggerUseOr": true,
+      "configSetID": ["allowcoin"]
+    },
+    "forbidcoins": {
+      "name": "",
+      "triggerID": ["pump1", "pump2", "pump3", "cci", "market"],
+      "triggerUseOr": true,
+      "configSetID": ["forbidcoin"]
+    }
+  }
+
+}

@@ -1,0 +1,41 @@
+{
+  "telegram": {
+    "token": "yourToken",
+    "chatId": "yourChatId"
+  },
+  "trading": {
+    "exchange": "BINANCE"
+  },
+  "server": {
+    "port": 3000,
+    "user": [
+      { "name": "admin", "password": "admin" },
+      { "name": "guest", "password": "guest", "readOnly": true}
+    ],
+    "ssl": {
+      "password": ""
+    }
+  },
+  "path": {
+    "appConfig": "./config/app.json",
+    "rulesConfig": "./config/rules.json",
+    "ptDefaultConfig": "./config/profittrailer.json",
+    "exchangeData": "./config/exchangeData.json",
+    "logfile": "./log.txt",
+    "ptConfigFolder": "./GENERATEDCONFIG"
+  },
+  "profittrailer": {
+    "updatePairs": true,
+    "updateDca": true,
+    "updateIndicators": true
+  },
+  "updateIntervals": {
+    "default": 30,
+    "loadExchangeData": 60,
+    "loadCMCData": 300,
+    "checkTriggers": 30,
+    "generatePtConfig": 30
+  },
+  "debug": true
+
+}
